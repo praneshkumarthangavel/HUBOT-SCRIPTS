@@ -9,11 +9,13 @@ It works along with your coffee script. You just have to follow the steps and pa
 # COMMANDS:
 
 # SONAR COMMANDS:
-sonar set server <server address> - to set sonar server
-    
-sonar coverage <project key> - to see the test percentage
+sonar projects - lists all the projects
 
-sonar issues <project key> – to see the issues
+sonar code coverage for project <Project Key> - coverage value of the  project
+
+sonar last analyse of project <Project Key> - last analyse of the project
+
+sonar metric values for project <Project Key> - all the metric datas of the project
  
 # BITBUCKET CLOUD COMMANDS:
 bitbucket repo details - all the details about repos
