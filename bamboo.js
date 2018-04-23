@@ -81,10 +81,10 @@ bamboo_builds = function(robot, msg)
       let completed_at = new Date(builds.buildCompletedTime);
       completed_at = completed_at.toString();
       buildStatus += i + ') '+
-              'Build Number: ' + builds.buildNumber + '\n' +
-               'Started at: ' + started_at.substring(8,10)+'-'+started_at.substring(4,7)+'-'+started_at.substring(11,15) + '\n' +
-               'Ended at: ' + completed_at.substring(8,10)+'-'+completed_at.substring(4,7)+'-'+completed_at.substring(11,15) + '\n' +
-               'Build Status: '+ builds.buildState + '\n' + '\n' ;
+              'Build Number : ' + builds.buildNumber + '\n' +
+               'Started at : ' + started_at.substring(8,10)+'-'+started_at.substring(4,7)+'-'+started_at.substring(11,15) + '\n' +
+               'Ended at : ' + completed_at.substring(8,10)+'-'+completed_at.substring(4,7)+'-'+completed_at.substring(11,15) + '\n' +
+               'Build Status : '+ builds.buildState + '\n' + '\n' ;
     })
     return msg.send(buildStatus);
   });
@@ -100,10 +100,10 @@ bamboo_latest_builds = function(robot, msg)
     let build = JSON.parse(body).results;
     let result = '' ;
     result += '' +
-         'Build Number: ' + build.result[0].buildNumber + '\n' +
-          'Started at: ' + build.result[0].buildStartedTime + '\n' +
-          'Ended at: ' + build.result[0].buildCompletedTime + '\n' +
-          'Build Status: ' + build.result[0].buildState + '\n' + '\n' ;
+         'Build Number : ' + build.result[0].buildNumber + '\n' +
+          'Started at : ' + build.result[0].buildStartedTime + '\n' +
+          'Ended at : ' + build.result[0].buildCompletedTime + '\n' +
+          'Build Status : ' + build.result[0].buildState + '\n' + '\n' ;
     return msg.send(result);
   });
 };
@@ -120,9 +120,9 @@ bamboo_project_plans = function(robot, msg)
     build.plan.map((builds,index) => {
         let i = index+1;
         buildStatus += i + ') '+
-                                 'Plan Name: ' + builds.shortName + '\n' +
-                                 'Plan Key: ' + builds.key + '\n' +
-                                 'Enabled: ' + builds.enabled + '\n' + '\n' ;
+                                 'Plan Name : ' + builds.shortName + '\n' +
+                                 'Plan Key : ' + builds.key + '\n' +
+                                 'Enabled : ' + builds.enabled + '\n' + '\n' ;
     })
     return msg.send(buildStatus);
   });
@@ -137,10 +137,10 @@ bamboo_trigger_plan = function(robot, msg)
     handleError(err, res.statusCode, msg);
     let build = JSON.parse(body);
     let buildStatus = '' ;
-    buildStatus += 'Plan Key: ' + build.planKey + '\n' +
-                     'Build Number: ' + build.buildNumber + '\n' +
-                     'Trigger Reason: ' + build.triggerReason + '\n' +
-                     'Reference Link: ' + build.link.href + '\n' + '\n' ;
+    buildStatus += 'Plan Key : ' + build.planKey + '\n' +
+                     'Build Number : ' + build.buildNumber + '\n' +
+                     'Trigger Reason : ' + build.triggerReason + '\n' +
+                     'Reference Link : ' + build.link.href + '\n' + '\n' ;
     return msg.send(buildStatus);
   });
 };
@@ -157,10 +157,20 @@ bamboo_latest_projects = function(robot, msg)
     build.project.map((builds,index) => {
         let i = index+1;
         projectStatus += i + ') ' +
-                'Project Name:' + builds.name + '\n' +
-                'Project Key:' + builds.key + '\n' + '\n' ;
+                'Project Name : ' + builds.name + '\n' +
+                'Project Key : ' + builds.key + '\n' + '\n' ;
     })
     return msg.send(projectStatus);
   });
 };
 
+handleError = function(err, statusCode, msg)
+ {
+   if (err) {
+  msg.send("Encountered an error: " + err);
+  return;
+}
+if (statusCode !== 200) {
+  msg.send("Request didn't come back HTTP 200");
+}
+};
