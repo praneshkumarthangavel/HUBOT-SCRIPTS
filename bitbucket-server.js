@@ -42,7 +42,6 @@
 
 //
 
-
 module.exports = function(robot)
  {
   robot.respond(/bitbucket project details/i, function(msg)
