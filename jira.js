@@ -100,9 +100,9 @@ user_stories = function(robot, msg)
 		let tmp = sprints[sprintNames[i]];
                 let index= i +1;
                 issueDetails += index + ') ' + JSON.stringify(Object.keys(sprints)[i])  + '\n' 
-                                + "Issue Count:" + JSON.stringify(tmp.Issues_Count) + '\n'
-                                + "StartDate:" + JSON.stringify(tmp.StartDate)+ '\n'
-                                + "EndDate" + JSON.stringify(tmp.EndDate) + '\n' + '\n';
+                                + "Issue Count : " + JSON.stringify(tmp.Issues_Count) + '\n'
+                                + "StartDate : " + JSON.stringify(tmp.StartDate)+ '\n'
+                                + "EndDate : " + JSON.stringify(tmp.EndDate) + '\n' + '\n';
          };
        msg.send(issueDetails);
       });
@@ -127,8 +127,8 @@ user_stories = function(robot, msg)
                } else {
                   assigneeName = params.fields.assignee.name ;
                }
-               issues += i + ") " + "Assignee Name: "+ assigneeName + '\n' +
-                               "Description: " + params.fields.description + '\n' ;
+               issues += i + ") " + "Assignee Name : "+ assigneeName + '\n' +
+                               "Description : " + params.fields.description + '\n' ;
            });
            if(!issues.length) {
              msg.send("No issues found");
@@ -168,9 +168,9 @@ user_stories = function(robot, msg)
             }
              if(params.fields.customfield_10004[0].split(/name=/)[1].split(',')[0] === keysSorted[0]) {
                 let i = index+1;
-                latestDetails +=  i + ") " + "Assignee Name: "+assigneeName + '\n' +
-                                 "Description: " + params.fields.description + '\n' +
-                                 "Status:" + params.fields.status.name + '\n' + '\n' ;
+                latestDetails +=  i + ") " + "Assignee Name : "+assigneeName + '\n' +
+                                 "Description : " + params.fields.description + '\n' +
+                                 "Status : " + params.fields.status.name + '\n' + '\n' ;
               }
             });
           msg.send(latestDetails);
@@ -198,8 +198,8 @@ user_stories = function(robot, msg)
              }
              if(params.fields.status.statusCategory.name === 'To Do') {
                i = i+1;
-               todoDetails += i + ") " + "Assignee Name: "+ assigneeName + '\n' +
-                               "Description: " + params.fields.description + '\n' ;
+               todoDetails += i + ") " + "Assignee Name : "+ assigneeName + '\n' +
+                               "Description : " + params.fields.description + '\n' ;
              }
            });
            if(!todoDetails.length) {
@@ -231,8 +231,8 @@ user_stories = function(robot, msg)
                  } else {
                     assigneeName = params.fields.assignee.name ;
                  }          
-                 doneDetails += i + ") " + "Assignee Name: "+ assigneeName  + '\n' +
-                                 "Description: " + params.fields.description + '\n' ;
+                 doneDetails += i + ") " + "Assignee Name : "+ assigneeName  + '\n' +
+                                 "Description : " + params.fields.description + '\n' ;
                }
              });
              if(!doneDetails.length) {
@@ -264,8 +264,8 @@ user_stories = function(robot, msg)
                    } else {
                      assigneeName = params.fields.assignee.name ;
                    }
-                   wipDetails += i + ") " + "Assignee Name: "+ assigneeName + '\n' +
-                                   "Description: " + params.fields.description + '\n' ;
+                   wipDetails += i + ") " + "Assignee Name : "+ assigneeName + '\n' +
+                                   "Description : " + params.fields.description + '\n' ;
                  }
                });
                if(!wipDetails.length) {
