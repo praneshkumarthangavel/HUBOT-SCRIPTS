@@ -44,7 +44,6 @@
 
 //
 
-
 module.exports = function(robot)
  {
   robot.respond(/bitbucket repo details/, function(msg)
@@ -175,7 +174,7 @@ issueDetails = function(robot, msg)
        issueDetails += i + ') '+ "Title : " + params.title + '\n' +
                                  "Reporter : "+ params.reporter.display_name + '\n' +
                                  "Priority : " + params.priority + '\n' +
-                                 "Type :" + params.kind + '\n'+
+                                 "Type : " + params.kind + '\n'+
                                  "Created on : "+ created_on.substring(8,10)+'-'+created_on.substring(4,7)+'-'+created_on.substring(11,15) + '\n' +
                                  "Updated on : "+ updated_on.substring(8,10)+'-'+updated_on.substring(4,7)+'-'+updated_on.substring(11,15) + '\n' +
                                  "Status : "+params.state+ '\n' + '\n';
