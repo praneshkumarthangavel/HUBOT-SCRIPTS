@@ -39,47 +39,6 @@
 // PRANESH KUMAR THANGAVEL
 
 //
-// Description:
-
-//  Interact with your Sonarqube Server
-
-//
-
-// Dependencies:
-
-//  None
-
-//
-
-// Configuration:
-
-//  HUBOT_SONAR_URL
-
-//  HUBOT_SONAR_AUTH
-
-//
-
-//  Auth should be in the "user:password" format.
-
-//
-
-// Commands:
-
-// sonar projects -> lists all the projects
-
-// sonar code coverage for project <Project Key> -> coverage value of the  project
-
-// sonar last analyse of project <Project Key> -> last analyse of the project
-
-// sonar metric values for project <Project Key> -> all the metric datas of the project
-
-//
-
-// Author:
-
-// PRANESH KUMAR THANGAVEL
-
-//
 
 module.exports = function(robot) {
  robot.respond(/sonar projects/i, function(msg) {
@@ -179,4 +138,3 @@ if (statusCode !== 200) {
   msg.send("Request didn't come back HTTP 200");
 }
 };
-
